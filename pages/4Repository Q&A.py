@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import re
@@ -9,7 +10,7 @@ elif st.session_state.user_role == 'employee' or st.session_state.user_role == '
 
     model = OllamaLLM(model='llama3')
 
-    GITHUB_TOKEN = '***REMOVED***'
+    GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', '')
 
     st.title("GitHub Repository QA")
 
