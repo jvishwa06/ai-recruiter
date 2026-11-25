@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import requests
 import re
@@ -38,7 +39,7 @@ def chat_with_model(content, question):
 st.header("GitHub Repository Chat")
 
 repo_url = st.text_input("Enter GitHub Repository URL")
-github_token = '***REMOVED***'
+github_token = os.environ.get('GITHUB_TOKEN', '')
 
 if repo_url and github_token:
     try:
